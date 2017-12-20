@@ -2,7 +2,8 @@ version: '3'
 
 services:
   generator:
-    image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
+    # OLD image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
+    image: ${TC_DEPLOY_PROD_TAG}
     ports:
       - "${PORT_GENERATOR-80}:80"
     environment:

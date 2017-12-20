@@ -2,7 +2,8 @@ version: '3.1'
 
 services:
   generator:
-    image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
+    # OLD image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
+    image: ${TC_BUILD_IMAGE_TAG}
     #ports:
     #  - "8080:80"
   mail:
@@ -10,7 +11,8 @@ services:
     #ports:
     #  - "8025:8025"
   integration:
-    image: my-registry:55000/gen:integration-${BUILD_NUMBER-10}
+    # OLD image: my-registry:55000/gen:integration-${BUILD_NUMBER-10}
+    image: ${TC_TEST_INTEGRATION_TAG}
     build: .
     environment:
       - TEAMCITY_PROJECT_NAME
